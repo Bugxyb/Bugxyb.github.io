@@ -1,0 +1,13 @@
+title: Bugxyb
+author: Bugxyb
+description: 随心所欲
+
+highlighter: null
+permalink: /:title
+
+url:
+baseurl:
+
+# Custom options:
+# color_scheme: azul|ruby|amber|avocado
+# color_scheme: avocado
