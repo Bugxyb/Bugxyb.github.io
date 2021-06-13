@@ -2,6 +2,7 @@ title: Bugxyb
 author: Bugxyb
 description: 随心所欲
 
+markdown: kramdown
 highlighter: null
 permalink: /:title
 
