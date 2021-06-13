@@ -44,5 +44,59 @@ public int chalkReplacer(int[] chalk, int k) {
 ```
 
 # T3: Largest Magic Square
+枚举从每个点开始，找到满足条件的k是不是最大的，暴力求解即可
 
 # T4: Minimum Cost to Change the Final Value of Expression
+转后缀表示，去掉括号符号，然后f[0/1] 分别表示该值为0或者1时候，最少需要操作多少次。
+
+```java
+private List<Character> changeToSuffix(String exp) {
+    List<Character> ans = new ArrayList<>();
+    LinkedList<Character> op = new LinkedList<>();
+    for(char ch : exp.toCharArray()) {
+        if (ch == '&' || ch == '|' || ch=='(') {
+            op.add(ch);
+            continue;
+        }
+        if (ch == ')') {
+            op.removeLast();
+        }
+        if (ch == '0' || ch == '1') {
+            ans.add(ch);
+        }
+        while((op.size()>0) && (op.getLast() != '(')) {
+            ans.add(op.removeLast());
+        }
+    }
+    return ans;
+}
+public int minOperationsToFlip(String expression) {
+    List<Character> op = changeToSuffix(expression);
+    LinkedList<int[]> ans = new LinkedList<>();
+    for (Character ch: op) {
+        int[] t = new int[3];
+        if (ch == '0' || ch == '1') {
+            t[0] = ch - '0';
+            t[1] = '1' - ch;
+            t[2] = ch - '0';
+            ans.add(t);
+            continue;
+        }
+        int[] t1 = ans.removeLast();
+        int[] t2 = ans.removeLast();
+        if (ch == '&') {
+            t[0]=Math.min(Math.min(t1[0], t2[0]), t1[0]+t2[0]+1);
+            t[1]=Math.min(t1[1]+t2[1], Math.min(t1[1], t2[1])+1);
+            t[2]=t1[2]&t2[2];
+        }
+        if (ch == '|') {
+            t[0]=Math.min(t1[0]+t2[0], Math.min(t1[0], t2[0])+1);
+            t[1]=Math.min(Math.min(t1[1], t2[1]), t1[1]+t2[1]+1);
+            t[2]=t1[2]|t2[2];
+        }
+        ans.add(t);
+    }
+    int[] ret = ans.removeLast();
+    return ret[1-ret[2]];
+}
+```
