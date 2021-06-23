@@ -11,23 +11,22 @@ title: LeetCode Contest 246
 给定两个时间：startTime和finishTime，计算中间隔了多少个Quarter-Hour。分别计算两者距离00：00有多少个Quarter-Hour，然后两者相减即可
 
 ```java
-private int check(String time, int fn) {
+private int check(String time) {
     String[] ti = time.split(":");
     int hh = Integer.valueOf(ti[0]);
     int mm = Integer.valueOf(ti[1]);
-    int ret = hh * 4 + mm / 15 + (mm % 15 != 0 ? fn : 0);
-    return ret;
+    return 60 * hh +mm;
 }
 public int numberOfRounds(String startTime, String finishTime) {
-    int ans = 0;
-    int sTime = check(startTime, 1);
-    int fTime = check(finishTime, 0);
-    if (sTime <= fTime) {
-        ans = fTime - sTime;
-    } else {
-        ans = 4 * 24 - (sTime - fTime);
+    int sTime = check(startTime);
+    int fTime = check(finishTime);
+    if (sTime > fTime) {
+        fTime += 24 * 60;
     }
-    return ans;
+    sTime = (sTime / 15) + ((sTime % 15 == 0) ? 0 : 1);
+    fTime = fTime / 15;
+    int ans = fTime - sTime;
+    return ans < 0 ? 0 : ans;
 }
 ```
 
