@@ -11,7 +11,26 @@ title: LeetCode Contest 247
 暴力模拟转动即可
 
 # T3: Number of Wornderful Substrings
-状态压缩的DP, F\[i\]\[k\]表示到第i个字符的字串中，10个字符出现频率为K的次数多少，然后进行统计。注意超时优化
+状态压缩的数学统计，记录i-j的状态为(1-j)^(1-i-1)的状态，1-j的状态提前记录下来，时间复杂度为10n
+
+```java
+public long wonderfulSubstrings(String word) {
+    long[] fn = new long[1024];
+    fn[0] = 1;
+    int now = 0;
+    long ans = 0;
+    for(int i=0;i<word.length();i++) {
+        int p = 1 << (word.charAt(i) - 'a');
+        now = now ^ p;
+        ans += fn[now];
+        for(int k=0;k<10;k++) {
+            ans += fn[now ^ (1 << k)];
+        }
+        fn[now] += 1;
+    }
+    return ans;
+}
+```
 
 # T4: Count Ways to Build Rooms in an Ant Colony
 数学统计，假设两颗子树分别统计方案数和子树结点为Way1,Cnt1, Way2, Cnt2,那么这两个子树的方案是C\[Cn1\]\[Cnt1+Cnt2\] * Way1 * Way2取模，
