@@ -3,4 +3,4 @@ layout: page
 title: About
 ---
 
-一个佛系的人，准备新的开始
+暂时记录LeetCode相关的解析，做题找状态

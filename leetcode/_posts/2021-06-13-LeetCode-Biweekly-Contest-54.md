@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Biweekly Contest 54
+categories: LeetCode
 ---
 总体一般，头两题丢时间太多。
 

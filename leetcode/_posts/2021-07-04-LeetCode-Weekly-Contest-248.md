@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Contest 248
+categories: LeetCode
 ---
 最后一题不会做，使用RabinKarp的Hash匹配算法
 

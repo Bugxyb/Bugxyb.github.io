@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Biweekly Contest 56
+categories: LeetCode
 ---
 
 题目难度一般，罚时过多，导致损失较大

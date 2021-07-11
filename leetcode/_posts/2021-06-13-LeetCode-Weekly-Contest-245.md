@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Contest 245
+categories: LeetCode
 ---
 状态极差，第一题看错题，导致正常考试白给
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Contest 246
+categories: LeetCode
 ---
 写代码速度有点慢，没想到最后一题还是偏简单，第二题和第三题浪费太多时间了
 

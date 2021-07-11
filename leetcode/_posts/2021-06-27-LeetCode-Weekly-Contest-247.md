@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Contest 247
+categories: LeetCode
 ---
 每周例行崩溃，倒数第三题卡超时，导致最后一题没时间做了
 

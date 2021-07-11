@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LeetCode Biweekly Contest 55
+categories: LeetCode
 ---
 看环法最后大摔车了，所以最后一题发呆有点儿久
 
