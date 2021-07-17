@@ -1,6 +1,8 @@
 - url: /
   title: Home
-- url: /leetcode
+- url: /home/leetcode
   title: LeetCode
-- url: /about
+- url: /home/Code
+  title: Code
+- url: /home/about
   title: About
